@@ -1,19 +1,80 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: palegreen;
 }
 
 .AddTodos{
   padding: 50px;
+
 }
 
 .newTaskText{
   padding: 8px;
   background-color: rgba(179, 140, 140, 0.418);
   border-radius: 5px;
-
 }
 
 .addBtn{
+  padding: 7px;
+  border-radius: 5px;
+  background-color: rgba(179, 140, 140, 0.418);
+}
+
+.filterSelection{
+  background-color: rgba(179, 140, 140, 0.418);
   padding: 8px;
-  
+  border-radius: 5px;
+}
+
+.Filter{
+  padding: 50px;
+
+}
+
+.forum{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.checkBtn{
+  padding: 7px;
+  border-radius: 5px;
+  background-color: rgba(173, 184, 18, 0.616);
+  margin-right: 10px;
+}
+
+.trashBtn{
+  padding: 7px;
+  border-radius: 5px;
+  background-color: rgba(219, 23, 23, 0.815);
+}
+
+.taskText{
+  padding: 8px;
+  background-color: rgba(250, 227, 227, 0.664);
+  border-radius: 5px;
+  color: black;
+  margin-right: 10px;
+}
+
+.Todo{
+  display: flex;
+  list-style: none;
+  width: 400px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.Todos > ul{
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.completed{
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.562);
 }
