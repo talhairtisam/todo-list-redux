@@ -24,16 +24,13 @@ export const todoReducer = (state=INITIAL_STATE,action) => {
         case todoType.DELETE:
             return {
                 ...state,
-                Todo:[
-                    state.filter((todo) => todo.id !== action.payload)
-                ]
+                Todo:state.Todo.filter((todo) => todo.id !== action.payload)
             }
             break;
         case todoType.COMPLETED:
             return {
                 ...state,
-                Todo:[
-                    state.map((todo)=>{
+                Todo:state.Todo.map((todo)=>{
                         if(todo.id === action.payload)
                         {
                             return {
@@ -42,7 +39,6 @@ export const todoReducer = (state=INITIAL_STATE,action) => {
                         }
                         return todo
                     })
-                ]
             }
             break;
             // case filterType.COMPLETED:

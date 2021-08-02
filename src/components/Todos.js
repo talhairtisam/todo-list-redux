@@ -10,7 +10,7 @@ function Todos({todos}){
             <ul>
                 {
                     todos.map((todo)=>(
-                        <Todo key={todo.id} text={todo.text} />
+                        <Todo key={todo.id} todo={todo} />
                     ))
                 }
             </ul>
