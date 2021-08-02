@@ -1,8 +1,8 @@
 import React,{ useState } from 'react';
-import { AddTodoAction } from '../redux/actions';
+import { AddTodoAction,DisplayAction } from '../redux/actions';
 import { connect } from 'react-redux';
 
-function AddTodos({addTodo}){
+function AddTodos({addTodo,Display}){
     const [text,setText] = useState(""); 
     const handleInput =(e) =>{
         setText(e.target.value);
@@ -15,6 +15,7 @@ function AddTodos({addTodo}){
                 onClick={() => {
                     addTodo(text);
                     setText("");
+                    Display();
                 }}
                 >
                     <i className="fas fa-plus-square fa-lg "></i>
@@ -26,7 +27,8 @@ function AddTodos({addTodo}){
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-        addTodo: (text) => dispatch(AddTodoAction(text))
+        addTodo: (text) => dispatch(AddTodoAction(text)),
+        Display: () => dispatch(DisplayAction())
     }
 }
 

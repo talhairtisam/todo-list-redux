@@ -21,7 +21,7 @@ function Todos({todos}){
 
 const mapStatesToProps = (state) => {
     return {
-        todos: state.Todo
+        todos: state.filterTodo
     }
 }
 

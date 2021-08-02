@@ -1,33 +1,31 @@
-import { filterType,todoType } from "./actionType";
+import { actionType } from "./actionType";
 
 const INITIAL_STATE = {
-    Todo: []
-    // ,
-    // filterTodo: [],
-    // filter: filterType.ALL
+    Todo: [],
+    filterTodo: [],
+    filter: "ALL"
 }
+
 
 
 export const todoReducer = (state=INITIAL_STATE,action) => {
     switch(action.type){
-        case todoType.ADD:
+        case actionType.ADD:
             return {
                 ...state,
                 Todo:[
                     ...state.Todo,
                     {text: action.payload, completed: false, id: Math.random()*1000 }
                 ]
-                // ,
-                // filterTodo:(state.filter === filterType.ALL)?Todo:state.filterTodo
             }
             break;
-        case todoType.DELETE:
+        case actionType.DELETE:
             return {
                 ...state,
                 Todo:state.Todo.filter((todo) => todo.id !== action.payload)
             }
             break;
-        case todoType.COMPLETED:
+        case actionType.COMPLETED:
             return {
                 ...state,
                 Todo:state.Todo.map((todo)=>{
@@ -41,27 +39,31 @@ export const todoReducer = (state=INITIAL_STATE,action) => {
                     })
             }
             break;
-            // case filterType.COMPLETED:
-            //     return {
-            //         ...state,
-            //         filterTodo:[
-            //             state.Todos.filter((todo) => todo.completed)
-            //         ]
-            //     }
-            //     break;
-            // case filterType.PENDING:
-            //     return {
-            //         ...state,
-            //         filterTodo:[
-            //             state.Todos.filter((todo) => !todo.completed)
-            //         ]
-            //     }
-            //     break;
-            // case filterType.ALL:
-            //     return {
-            //         ...state,
-            //         filterTodo:state.Todo
-            //     }
+        case actionType.FILTER:
+            return{
+                ...state,
+                filter: action.payload
+            }
+            break;
+        case actionType.DISPLAY:
+            switch(state.filter){
+                case "COMPLETED":
+                    return{
+                        ...state,
+                        filterTodo: state.Todo.filter(todo => todo.completed === true)
+                    }
+                case "PENDING":
+                    return {
+                        ...state,
+                        filterTodo: state.Todo.filter(todo => todo.completed === false)
+                    }
+                default:
+                    return {
+                        ...state,
+                        filterTodo: state.Todo
+                    }
+            }
+            break;
         default:
             return state
 

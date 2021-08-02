@@ -1,39 +1,37 @@
-import { filterType, todoType } from './actionType';
+import { actionType,filterType } from './actionType';
 
-// export const setFilterAll = () =>{
-//     return {
-//         type: filterType.ALL
-//     }
-// }
-// export const setFilterCompleted = () =>{
-//     return {
-//         type: filterType.COMPLETED
-//     }
-// }
-// export const setFilterPending = () =>{
-//     return {
-//         type: filterType.PENDING
-//     }
-// }
+export const changeFilter = (temp) =>{
+    return {
+        type: actionType.FILTER,
+        payload: temp
+    }
+}
 
 export const AddTodoAction = (text) =>{
     return {
-        type: todoType.ADD,
+        type: actionType.ADD,
         payload: text
     }
 }
 
 export const DeleteTodoAction = (id) => {
     return {
-        type: todoType.DELETE,
+        type: actionType.DELETE,
         payload: id
     }
 }
 
 export const CompletedTodoAction = (id) => {
     return {
-        type: todoType.COMPLETED,
+        type: actionType.COMPLETED,
         payload: id
     }
 }
+
+export const DisplayAction = () => {
+    return {
+        type: actionType.DISPLAY
+    }
+}
+
 

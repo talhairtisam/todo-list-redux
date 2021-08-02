@@ -1,11 +1,8 @@
-export const filterType = {
-    ALL: "ALL",
-    COMPLETED: "COMPLETED",
-    PENDING: "PENDING"
-}
-
-export const todoType = {
+export const actionType = {
     ADD: "ADD",
     COMPLETED: "COMPLETED",
-    DELETE: "DELETE"
+    DELETE: "DELETE",
+    FILTER: "CHANGE_FILTER",
+    DISPLAY: "DISPLAY"
+
 }
