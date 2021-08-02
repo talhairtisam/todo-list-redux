@@ -1,4 +1,4 @@
-import { actionType,filterType } from './actionType';
+import { actionType } from './actionType';
 
 export const changeFilter = (temp) =>{
     return {

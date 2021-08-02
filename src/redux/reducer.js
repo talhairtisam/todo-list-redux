@@ -18,13 +18,11 @@ export const todoReducer = (state=INITIAL_STATE,action) => {
                     {text: action.payload, completed: false, id: Math.random()*1000 }
                 ]
             }
-            break;
         case actionType.DELETE:
             return {
                 ...state,
                 Todo:state.Todo.filter((todo) => todo.id !== action.payload)
             }
-            break;
         case actionType.COMPLETED:
             return {
                 ...state,
@@ -38,13 +36,11 @@ export const todoReducer = (state=INITIAL_STATE,action) => {
                         return todo
                     })
             }
-            break;
         case actionType.FILTER:
             return{
                 ...state,
                 filter: action.payload
             }
-            break;
         case actionType.DISPLAY:
             switch(state.filter){
                 case "COMPLETED":
@@ -63,7 +59,6 @@ export const todoReducer = (state=INITIAL_STATE,action) => {
                         filterTodo: state.Todo
                     }
             }
-            break;
         default:
             return state
 
