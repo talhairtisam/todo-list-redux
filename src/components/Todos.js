@@ -1,26 +1,28 @@
 import React from 'react';
 import Todo from './Todo';
+import { connect } from 'react-redux';
 
-function Todos(){
+
+
+function Todos({todos}){
     return (
         <div className='Todos'>
             <ul>
-                <Todo key="1" text="computer is full"/>
-           
-                <Todo key="2" text="cook dinner" />
-  
-                <Todo key="3" text="go for shopping with titu" />
-
-                <Todo key="4" text="clean PC" />
+                {
+                    todos.map((todo)=>(
+                        <Todo key={todo.id} text={todo.text} />
+                    ))
+                }
             </ul>
             
-            
-            
-            
-
-
         </div>
     );
 }
 
-export default Todos;
+const mapStatesToProps = (state) => {
+    return {
+        todos: state.Todo
+    }
+}
+
+export default connect(mapStatesToProps)(Todos);
